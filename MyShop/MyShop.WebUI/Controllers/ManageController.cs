@@ -11,16 +11,16 @@ using MyShop.WebUI.Models;
 namespace MyShop.WebUI.Controllers
 {
     [Authorize]
-    public class ManagerController : Controller
+    public class ManageController : Controller
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
-        public ManagerController()
+        public ManageController()
         {
         }
 
-        public ManagerController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
+        public ManageController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
