@@ -1,8 +1,11 @@
 
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using MyShop.Core.Contracts;
 using MyShop.Core.Models;
 using MyShop.DataAccess.InMemory;
 using MyShop.DataAccess.SQL;
+using MyShop.Services;
 using MyShop.WebUI.Controllers;
 using MyShop.WebUI.Models;
 using System;
@@ -53,6 +56,10 @@ namespace MyShop.WebUI
             container.RegisterType<IRepository<Product>, SQLRepository<Product>>();
             container.RegisterType<IRepository<ProductCategory>, SQLRepository<ProductCategory>>();
             container.RegisterType<AccountController>(new InjectionConstructor());
+            container.RegisterType<IRepository<Basket>, SQLRepository<Basket>>();
+            container.RegisterType<IRepository<BasketItem>, SQLRepository<BasketItem>>();
+            container.RegisterType<IBasketService, BasketService>();
+            container.RegisterType<IUserStore<ApplicationUser>, UserStore<ApplicationUser>>();
         }
     }
 }
